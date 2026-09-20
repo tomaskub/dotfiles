@@ -1,0 +1,20 @@
+onboarding = false
+
+[ui.toast]
+delivery = "system"
+
+[theme]
+auto_switch = true
+dark_name = "solarized"
+light_name = "solarized-light"
+
+[keys]
+split_vertical = "prefix+%"
+split_horizontal = 'prefix+"'
+goto = "prefix+w"
+workspace_picker = ""
+
+[ui]
+status_indicators = "symbols"
+pane_borders = "always"
+confirm_close = true
