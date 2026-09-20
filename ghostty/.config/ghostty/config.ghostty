@@ -1,0 +1,5 @@
+# Colors
+theme = light:iTerm2 Solarized Light,dark:iTerm2 Solarized Dark
+
+# Keyboard
+key-remap = left_super=ctrl
