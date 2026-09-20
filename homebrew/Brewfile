@@ -1,0 +1,65 @@
+# This file lists tools and apps, not their transitive dependencies.
+# Homebrew resolves and installs dependencies automatically.
+
+# Shell and development tools
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "git-lfs"
+brew "jump"
+brew "lazygit"
+brew "neovim"
+brew "node"
+brew "pandoc"
+brew "pipx"
+brew "rbenv"
+brew "ripgrep"
+brew "tmux"
+brew "tree"
+brew "uv"
+
+# Containers
+brew "colima"
+brew "docker"
+brew "docker-compose"
+
+# Swift and Apple-platform development
+brew "mint"
+brew "swift-format"
+brew "swiftformat"
+brew "swiftgen"
+brew "swiftlint"
+brew "vapor"
+brew "xcodegen"
+
+# AI and local models
+brew "aider"
+brew "gollama"
+brew "herdr"
+brew "hf"
+brew "ollama"
+brew "opencode"
+brew "pi-coding-agent"
+brew "whisper.cpp"
+
+# Documents, media, and utilities
+brew "ffmpeg"
+brew "graphviz"
+brew "innoextract"
+brew "poppler"
+brew "yt-dlp"
+
+# External display controls. m1ddc only supports Apple silicon.
+brew "ddcctl"
+brew "m1ddc" if Hardware::CPU.arm?
+
+# Applications installed through Homebrew
+cask "android-studio"
+cask "claude-code"
+cask "ghostty"
+cask "iterm2"
+cask "linear"
+cask "mactex"
+cask "obsidian"
+cask "vlc"
