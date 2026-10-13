@@ -45,11 +45,9 @@ brew "xcodes"
 cask "android-studio"
 
 # AI and local models
-brew "aider"
 brew "gollama"
 brew "hf"
 brew "ollama"
-brew "opencode"
 brew "pi-coding-agent"
 brew "whisper.cpp"
 cask "claude-code"
