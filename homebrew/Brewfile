@@ -1,22 +1,29 @@
 # This file lists tools and apps, not their transitive dependencies.
 # Homebrew resolves and installs dependencies automatically.
 
-# Shell and development tools
+# Shell navigation and file search
 brew "eza"
 brew "fd"
 brew "fzf"
+brew "jump"
+brew "ripgrep"
+brew "tree"
+
+# Git tools
 brew "gh"
 brew "git-lfs"
-brew "jump"
 brew "lazygit"
+
+# Editors and terminal workspaces
+brew "herdr"
 brew "neovim"
+cask "ghostty"
+cask "iterm2"
+
+# Language runtimes and package managers
 brew "node"
-brew "pandoc"
 brew "pipx"
 brew "rbenv"
-brew "ripgrep"
-brew "tmux"
-brew "tree"
 brew "uv"
 
 # Containers
@@ -32,34 +39,36 @@ brew "swiftgen"
 brew "swiftlint"
 brew "vapor"
 brew "xcodegen"
+brew "xcodes"
 
-# AI and local models
-brew "aider"
+# Android development
+cask "android-studio"
+
+# Local model serving
 brew "gollama"
-brew "herdr"
 brew "hf"
 brew "ollama"
-brew "opencode"
-brew "pi-coding-agent"
 brew "whisper.cpp"
+
+# AI tools
+brew "pi-coding-agent"
+cask "claude-code"
+cask "codex"
 
 # Documents, media, and utilities
 brew "ffmpeg"
 brew "graphviz"
 brew "innoextract"
+brew "pandoc"
 brew "poppler"
 brew "yt-dlp"
+cask "mactex"
+cask "vlc"
+
+# Planning and notes
+cask "linear"
+cask "obsidian"
 
 # External display controls. m1ddc only supports Apple silicon.
 brew "ddcctl"
 brew "m1ddc" if Hardware::CPU.arm?
-
-# Applications installed through Homebrew
-cask "android-studio"
-cask "claude-code"
-cask "ghostty"
-cask "iterm2"
-cask "linear"
-cask "mactex"
-cask "obsidian"
-cask "vlc"
