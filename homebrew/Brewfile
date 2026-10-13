@@ -53,6 +53,7 @@ brew "whisper.cpp"
 # AI tools
 brew "pi-coding-agent"
 cask "claude-code"
+cask "codex"
 
 # Documents, media, and utilities
 brew "ffmpeg"
