@@ -1,5 +1,8 @@
 # Colors
-theme = light:iTerm2 Solarized Light,dark:iTerm2 Solarized Dark
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
+background-opacity = 1
 
 # Keyboard
 key-remap = left_super=ctrl
+# Cursor style (block, bar, uderline, block_hollow)
+cursor-style = block
