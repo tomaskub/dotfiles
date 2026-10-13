@@ -5,8 +5,8 @@ delivery = "system"
 
 [theme]
 auto_switch = true
-dark_name = "solarized"
-light_name = "solarized-light"
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
 
 [keys]
 split_vertical = "prefix+%"
