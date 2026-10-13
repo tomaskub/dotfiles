@@ -44,6 +44,9 @@ brew "xcodes"
 # Android development
 cask "android-studio"
 
+# General development utilities
+cask "mitmproxy"
+
 # Local model serving
 brew "gollama"
 brew "hf"
