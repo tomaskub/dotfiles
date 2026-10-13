@@ -44,12 +44,14 @@ brew "xcodes"
 # Android development
 cask "android-studio"
 
-# AI and local models
+# Local model serving
 brew "gollama"
 brew "hf"
 brew "ollama"
-brew "pi-coding-agent"
 brew "whisper.cpp"
+
+# AI tools
+brew "pi-coding-agent"
 cask "claude-code"
 
 # Documents, media, and utilities
