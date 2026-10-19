@@ -74,6 +74,24 @@ Review and commit or back up local edits before pulling. `--ff-only` stops if th
 local branch has diverged. To update plugins, open Neovim and run `:Lazy`; review
 changes to `lazy-lock.json` in the Neovim repository. Neither Make target nor Stow
 manages this separate checkout.
+## Powerlevel10k prompt
+
+Both Make targets clone [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+if missing into `~/.oh-my-zsh/custom/themes/powerlevel10k`. If you export
+`ZSH_CUSTOM`, they use its `themes/powerlevel10k` directory instead, matching
+Oh My Zsh. `make install` leaves an existing theme checkout unchanged;
+`make update` updates it with `git pull --ff-only`.
+
+The Zsh package links `~/.p10k.zsh` and loads the preserved rainbow, single-line
+prompt with transient and instant prompts enabled. Before installing over an
+existing setup, back up and move any conflicting `~/.p10k.zsh` and `~/.zshrc`.
+Then run `make install` or `make update` and open a new terminal.
+
+The saved prompt uses Nerd Font v3 icons and Powerline glyphs. Install and select
+MesloLGS NF in each terminal's font settings using the
+[Powerlevel10k font instructions](https://github.com/romkatv/powerlevel10k#fonts).
+Font selection remains a manual step. Instant prompt caches are generated locally
+under `${XDG_CACHE_HOME:-$HOME/.cache}` and are not tracked.
 
 ## Zsh login initialization
 
@@ -123,8 +141,8 @@ Restart the IDE after installing the configuration.
 ## Update
 
 Pull the latest dotfiles, install or upgrade the listed packages, update Oh My
-Zsh using its own updater, and refresh the links to account for added or removed
-configuration files:
+Zsh using its own updater, update Powerlevel10k, and refresh the links for added
+or removed configuration files:
 
 ```sh
 git pull
