@@ -9,6 +9,9 @@ brew "jump"
 brew "ripgrep"
 brew "tree"
 
+# Dotfile management
+brew "stow"
+
 # Git tools
 brew "gh"
 brew "git-lfs"
