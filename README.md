@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, and Herdr
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, and IdeaVim
 configurations into your home directory:
 
 ```sh
@@ -39,6 +39,13 @@ through the Brewfile. Open a new terminal after installation to load the setup.
 Stow is included in the Brewfile. It links individual files and keeps directories
 as real directories. If an existing configuration conflicts with a link, Stow
 reports the conflict. Back up and move the conflicting file before retrying.
+
+## IdeaVim
+
+Install and enable the IdeaVim plugin in your JetBrains IDE. The setup links
+`ideavim/.ideavimrc` to `~/.ideavimrc`, enabling relative line numbers and the
+absolute number on the current line. See the [IdeaVim option reference](https://github.com/JetBrains/ideavim/wiki/set-commands).
+Restart the IDE after installing the configuration.
 
 ## Update
 
