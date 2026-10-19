@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, and Herdr
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, and Git
 configurations into your home directory:
 
 ```sh
@@ -39,6 +39,32 @@ through the Brewfile. Open a new terminal after installation to load the setup.
 Stow is included in the Brewfile. It links individual files and keeps directories
 as real directories. If an existing configuration conflicts with a link, Stow
 reports the conflict. Back up and move the conflicting file before retrying.
+
+## Git configuration
+
+The `git` Stow package links `~/.gitconfig` and `~/.gitignore`. It selects Neovim
+as the editor, ignores `.DS_Store` globally, and configures the Git LFS filters.
+Neovim and Git LFS are included in the Brewfile.
+
+Before installing over an existing setup, back up and move any conflicting
+`~/.gitconfig` and `~/.gitignore` files. Keep those backups until you have moved
+any identity, credentials, machine-specific settings, and extra ignore patterns
+you need into local configuration.
+
+Personal names and email addresses are not tracked. The managed configuration
+includes `~/.gitconfig.local` last so it can supply identity and override shared
+settings. Create or edit that file on each machine, replacing the example values:
+
+```sh
+git config --file ~/.gitconfig.local user.name "Your Name"
+git config --file ~/.gitconfig.local user.email "you@example.com"
+```
+
+Use `--file ~/.gitconfig.local` for future local changes. Commands using
+`git config --global` can modify the tracked configuration through its symlink.
+Keep credentials in your credential helper or local configuration. For additional
+ignore patterns, set `core.excludesfile` in `~/.gitconfig.local` to a separate
+local ignore file, including `.DS_Store` if you still want to ignore it.
 
 ## Update
 
