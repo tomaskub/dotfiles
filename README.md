@@ -40,6 +40,18 @@ Stow is included in the Brewfile. It links individual files and keeps directorie
 as real directories. If an existing configuration conflicts with a link, Stow
 reports the conflict. Back up and move the conflicting file before retrying.
 
+## Zsh login initialization
+
+The `zshrc` Stow package also links `~/.zprofile`. Login shells initialize
+Homebrew, add `~/.local/bin` and `~/.rbenv/bin` to `PATH`, and initialize rbenv
+once. Homebrew is located through `PATH` or its standard Apple silicon and Intel
+installation paths. Ruby versions remain local and are not installed by this
+configuration.
+
+Before installing over an existing setup, back up and move any conflicting
+`~/.zprofile`, then run `make install` or `make update`. Open a new login terminal
+to load it. Interactive shell settings remain in `~/.zshrc`.
+
 ## Update
 
 Pull the latest dotfiles, install or upgrade the listed packages, update Oh My
