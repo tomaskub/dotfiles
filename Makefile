@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := install
 
-STOW_PACKAGES := zshrc ghostty herdr git gh ideavim mitmproxy 
+STOW_PACKAGES := zshrc ghostty herdr git gh ideavim mitmproxy xcode
 ZSH_CUSTOM ?= $(HOME)/.oh-my-zsh/custom
 POWERLEVEL10K_DIR := $(ZSH_CUSTOM)/themes/powerlevel10k
 
