@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, and Herdr
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, Git, and IdeaVim
 configurations into your home directory:
 
 ```sh
@@ -74,6 +74,51 @@ Review and commit or back up local edits before pulling. `--ff-only` stops if th
 local branch has diverged. To update plugins, open Neovim and run `:Lazy`; review
 changes to `lazy-lock.json` in the Neovim repository. Neither Make target nor Stow
 manages this separate checkout.
+
+## Zsh login initialization
+
+The `zshrc` Stow package also links `~/.zprofile`. Login shells initialize
+Homebrew, add `~/.local/bin` and `~/.rbenv/bin` to `PATH`, and initialize rbenv
+once. Homebrew is located through `PATH` or its standard Apple silicon and Intel
+installation paths. Ruby versions remain local and are not installed by this
+configuration.
+
+Before installing over an existing setup, back up and move any conflicting
+`~/.zprofile`, then run `make install` or `make update`. Open a new login terminal
+to load it. Interactive shell settings remain in `~/.zshrc`.
+
+## Git configuration
+
+The `git` Stow package links `~/.gitconfig` and `~/.gitignore`. It selects Neovim
+as the editor, ignores `.DS_Store` globally, and configures the Git LFS filters.
+Neovim and Git LFS are included in the Brewfile.
+
+Before installing over an existing setup, back up and move any conflicting
+`~/.gitconfig` and `~/.gitignore` files. Keep those backups until you have moved
+any identity, credentials, machine-specific settings, and extra ignore patterns
+you need into local configuration.
+
+Personal names and email addresses are not tracked. The managed configuration
+includes `~/.gitconfig.local` last so it can supply identity and override shared
+settings. Create or edit that file on each machine, replacing the example values:
+
+```sh
+git config --file ~/.gitconfig.local user.name "Your Name"
+git config --file ~/.gitconfig.local user.email "you@example.com"
+```
+
+Use `--file ~/.gitconfig.local` for future local changes. Commands using
+`git config --global` can modify the tracked configuration through its symlink.
+Keep credentials in your credential helper or local configuration. For additional
+ignore patterns, set `core.excludesfile` in `~/.gitconfig.local` to a separate
+local ignore file, including `.DS_Store` if you still want to ignore it.
+
+## IdeaVim
+
+Install and enable the IdeaVim plugin in your JetBrains IDE. The setup links
+`ideavim/.ideavimrc` to `~/.ideavimrc`, enabling relative line numbers and the
+absolute number on the current line. See the [IdeaVim option reference](https://github.com/JetBrains/ideavim/wiki/set-commands).
+Restart the IDE after installing the configuration.
 
 ## Update
 
