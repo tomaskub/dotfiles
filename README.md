@@ -40,6 +40,41 @@ Stow is included in the Brewfile. It links individual files and keeps directorie
 as real directories. If an existing configuration conflicts with a link, Stow
 reports the conflict. Back up and move the conflicting file before retrying.
 
+## Restore Neovim configuration
+
+`make install` installs Neovim from the Brewfile. Its configuration lives in the
+separate [tomaskub/nvim repository](https://github.com/tomaskub/nvim) and needs a
+one-time restore after installation. With GitHub SSH access configured, run:
+
+```sh
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}"
+git clone git@github.com:tomaskub/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+nvim
+```
+
+Before cloning, check for an existing `nvim` directory or symlink at that path.
+If it is already a checkout of `tomaskub/nvim`, keep it and use the update steps
+below. Otherwise, back it up and move it before cloning. Do not clone over an
+existing configuration. If SSH access is unavailable, use
+`https://github.com/tomaskub/nvim.git` as the clone URL instead.
+
+The first launch bootstraps lazy.nvim and installs the configured plugins, so it
+needs network access. The plugin definitions, lockfile, and Xcode integration
+stay in the Neovim repository. Follow that repository for any additional plugin
+setup. Installing the dotfiles alone does not set up Xcode or its debugger.
+
+Update the configuration separately from `make update`:
+
+```sh
+git -C "${XDG_CONFIG_HOME:-$HOME/.config}/nvim" status --short
+git -C "${XDG_CONFIG_HOME:-$HOME/.config}/nvim" pull --ff-only
+```
+
+Review and commit or back up local edits before pulling. `--ff-only` stops if the
+local branch has diverged. To update plugins, open Neovim and run `:Lazy`; review
+changes to `lazy-lock.json` in the Neovim repository. Neither Make target nor Stow
+manages this separate checkout.
+
 ## Update
 
 Pull the latest dotfiles, install or upgrade the listed packages, update Oh My
