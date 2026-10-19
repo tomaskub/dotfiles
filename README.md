@@ -40,11 +40,30 @@ Stow is included in the Brewfile. It links individual files and keeps directorie
 as real directories. If an existing configuration conflicts with a link, Stow
 reports the conflict. Back up and move the conflicting file before retrying.
 
+## Powerlevel10k prompt
+
+Both Make targets clone [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+if missing into `~/.oh-my-zsh/custom/themes/powerlevel10k`. If you export
+`ZSH_CUSTOM`, they use its `themes/powerlevel10k` directory instead, matching
+Oh My Zsh. `make install` leaves an existing theme checkout unchanged;
+`make update` updates it with `git pull --ff-only`.
+
+The Zsh package links `~/.p10k.zsh` and loads the preserved rainbow, single-line
+prompt with transient and instant prompts enabled. Before installing over an
+existing setup, back up and move any conflicting `~/.p10k.zsh` and `~/.zshrc`.
+Then run `make install` or `make update` and open a new terminal.
+
+The saved prompt uses Nerd Font v3 icons and Powerline glyphs. Install and select
+MesloLGS NF in each terminal's font settings using the
+[Powerlevel10k font instructions](https://github.com/romkatv/powerlevel10k#fonts).
+Font selection remains a manual step. Instant prompt caches are generated locally
+under `${XDG_CACHE_HOME:-$HOME/.cache}` and are not tracked.
+
 ## Update
 
 Pull the latest dotfiles, install or upgrade the listed packages, update Oh My
-Zsh using its own updater, and refresh the links to account for added or removed
-configuration files:
+Zsh using its own updater, update Powerlevel10k, and refresh the links for added
+or removed configuration files:
 
 ```sh
 git pull
