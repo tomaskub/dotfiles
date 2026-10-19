@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := install
 
-STOW_PACKAGES := zshrc ghostty herdr
+STOW_PACKAGES := zshrc ghostty herdr mitmproxy yt-smzr
 
 # Find Homebrew and its tools before shell startup files have been configured.
 export PATH := $(PATH):/opt/homebrew/bin:/usr/local/bin
