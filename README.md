@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, Herdr, and Git
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, Git, and IdeaVim
 configurations into your home directory:
 
 ```sh
@@ -65,6 +65,13 @@ Use `--file ~/.gitconfig.local` for future local changes. Commands using
 Keep credentials in your credential helper or local configuration. For additional
 ignore patterns, set `core.excludesfile` in `~/.gitconfig.local` to a separate
 local ignore file, including `.DS_Store` if you still want to ignore it.
+
+## IdeaVim
+
+Install and enable the IdeaVim plugin in your JetBrains IDE. The setup links
+`ideavim/.ideavimrc` to `~/.ideavimrc`, enabling relative line numbers and the
+absolute number on the current line. See the [IdeaVim option reference](https://github.com/JetBrains/ideavim/wiki/set-commands).
+Restart the IDE after installing the configuration.
 
 ## Update
 
