@@ -1,0 +1,1 @@
+# Override Stow's default ignore list so the global .gitignore is linked.
