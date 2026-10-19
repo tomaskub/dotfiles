@@ -8,6 +8,8 @@ brew "fzf"
 brew "jump"
 brew "ripgrep"
 brew "tree"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
 # Dotfile management
 brew "stow"
