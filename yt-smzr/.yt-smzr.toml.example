@@ -1,0 +1,7 @@
+[summarization]
+provider = "openrouter"
+model = "z-ai/glm-5.3-flash"
+
+[ollama]
+base_url = "http://localhost:11434"
+timeout_seconds = 120.0

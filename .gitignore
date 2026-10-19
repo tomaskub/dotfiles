@@ -1,2 +1,10 @@
+# Active yt-smzr settings and generated transcripts/cache stay local.
+/yt-smzr/.yt-smzr.toml
+/yt-smzr/.yt-smzr/
+
+# Only the portable mitmproxy settings belong in the Stow package.
+/mitmproxy/.mitmproxy/*
+!/mitmproxy/.mitmproxy/config.yaml
+
 gh/.config/gh/hosts.yml
 gh/.config/gh/attach.yml

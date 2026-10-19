@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI configurations into your home directory:
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI and mitmproxy configurations into your home directory:
 
 ```sh
 make install
@@ -178,3 +178,38 @@ Make target. Repeat this step on each machine that needs these credentials.
 
 Open a new terminal to load the values. The shell also starts normally without a
 secrets file.
+
+## Utility configuration
+
+### mitmproxy
+
+The Brewfile installs mitmproxy. Stow links only `~/.mitmproxy/config.yaml`, which
+selects the [horizontal console layout](https://docs.mitmproxy.org/stable/concepts/options/).
+Back up and move an existing `config.yaml` before `make install`, then launch
+`mitmproxy` to load it. Keep `~/.mitmproxy` as a real directory so private keys,
+certificates, command history, and captured traffic remain local. The package's
+ignore rules allow only `config.yaml` into version control.
+
+On a new machine, mitmproxy [generates its own CA on first launch](https://docs.mitmproxy.org/stable/concepts/certificates/).
+Configure your client proxy and certificate trust manually if needed. Review any
+configuration saved from the interactive options editor before committing it;
+the linked file must contain only settings safe to share.
+
+### OpenSpec
+
+The reviewed `~/.config/openspec/config.json` contains only generated telemetry
+notice state and an anonymous identifier. It has no portable preferences to
+restore, so setup leaves it local and OpenSpec recreates it as needed. Do not
+copy the identifier between machines or add the generated file to a Stow package.
+The [configuration reference](https://github.com/Fission-AI/OpenSpec/blob/main/docs-lab/reference/configuration/config-json.md)
+describes those fields and optional telemetry controls.
+
+If needed, install the CLI separately with the Brewfile's Node installation,
+following the [OpenSpec installation instructions](https://github.com/Fission-AI/OpenSpec#quick-start):
+
+```sh
+npm install -g @fission-ai/openspec@latest
+```
+
+Run `openspec init` only inside the project that needs it. Project specs and agent
+integration files belong to that project.
