@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI, mitmproxy configurations and the yt-smzr example into your home directory:
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI and mitmproxy configurations into your home directory:
 
 ```sh
 make install
@@ -180,42 +180,6 @@ Open a new terminal to load the values. The shell also starts normally without a
 secrets file.
 
 ## Utility configuration
-
-### yt-smzr
-
-The `yt-smzr` package links `~/.yt-smzr.toml.example`. It preserves the OpenRouter
-provider and model selection and the local Ollama endpoint and timeout. Copy it
-to the active path once, skipping the copy if `~/.yt-smzr.toml` already exists:
-
-```sh
-cp -n ~/.yt-smzr.toml.example ~/.yt-smzr.toml
-```
-
-The active file remains local because the application's settings screen replaces
-it when saving. `make update` refreshes the example without overwriting saved
-choices. Keep `OPENROUTER_API_KEY` in `~/.config/zsh/secrets.env` as described above,
-then open a new terminal. API keys never belong in the TOML file. The saved model
-must be available to your OpenRouter account; edit the local file to select
-another model. `YT_SMZR_SUMMARIZATION_PROVIDER` and
-`YT_SMZR_SUMMARIZATION_MODEL` override the saved choices.
-
-Install [yt-smzr from its source repository](https://github.com/tomaskub/yt-smzr)
-separately. The Brewfile provides uv, FFmpeg, and Node for its workflow. In a new
-checkout:
-
-```sh
-git clone https://github.com/tomaskub/yt-smzr.git ~/workspace/yt-smzr
-cd ~/workspace/yt-smzr
-uv python install 3.12
-uv sync --locked
-uv run yt-smzr tui
-```
-
-Its default `.yt-smzr/` output directory contains the database, transcripts, and
-summaries relative to the working directory. Keep it outside this repository.
-Ollama is optional for the selected OpenRouter provider. To use it, start
-`ollama serve`, install a model yourself, and change the local provider and model
-settings. Setup does not download models or start services.
 
 ### mitmproxy
 
