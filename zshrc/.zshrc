@@ -1,6 +1,6 @@
 eval "$(jump shell)"
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git web-search)
 source $ZSH/oh-my-zsh.sh
 
 # Load secrets
@@ -21,6 +21,11 @@ export EDITOR="nvim"
 # Aliases
 alias lz="lazygit"
 alias xcode="open -a xcode"
+
+# Shell plugins
+BREW_PREFIX="$(brew --prefix)"
+source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Custom agent CLIs 
 codex-afk() {
