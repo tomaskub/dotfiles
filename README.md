@@ -21,8 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, Herdr, Git, and IdeaVim
-configurations into your home directory:
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI configurations into your home directory:
 
 ```sh
 make install
@@ -148,6 +147,19 @@ or removed configuration files:
 git pull
 make update
 ```
+
+## GitHub CLI
+
+Stow manages `~/.config/gh/config.yml`, preserving SSH transport, Neovim editing,
+interactive prompt preferences, and the `gh co` alias for `gh pr checkout`.
+Before the first install on an existing machine, back up and move only a
+conflicting `~/.config/gh/config.yml`, then run `make install`.
+Keep the `~/.config/gh` directory in place.
+
+`hosts.yml` contains account authentication and stays local. The attachment
+configuration in `attach.yml` also stays local to its source machine. Neither
+file is managed by Stow. Authenticate separately on each new machine with
+`gh auth login`; existing authentication and attachment settings remain in place.
 
 ## Local secrets
 
