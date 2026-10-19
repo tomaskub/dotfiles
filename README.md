@@ -21,7 +21,7 @@ cd ~/workspace/dotfiles
 ```
 
 Install Oh My Zsh if it is missing, install the packages in `homebrew/Brewfile`
-without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git and GitHub CLI configurations into your home directory:
+without upgrading existing packages, then link the Zsh, Ghostty, Herdr, IdeaVim, Git, GitHub CLI and Xcode configurations into your home directory:
 
 ```sh
 make install
@@ -178,3 +178,35 @@ Make target. Repeat this step on each machine that needs these credentials.
 
 Open a new terminal to load the values. The shell also starts normally without a
 secrets file.
+
+## Xcode keybindings and themes
+
+The `xcode` Stow package preserves the named custom keybinding set
+`Tomasz.kubiak.xcode` and the customized `Default (Dark)` and `Default (Light)`
+themes. It links these files into `~/Library/Developer/Xcode/UserData/KeyBindings/`
+and `~/Library/Developer/Xcode/UserData/FontAndColorThemes/`. The keybindings
+include history navigation with Control-Command-H/L and editor tab navigation
+with Shift-Command-H/L. The themes use macOS fonts and 14-point source text.
+
+Quit Xcode before installing or updating these files. Back up and move any
+existing files with the same names out of those directories before running
+`make install` or `make update`. Stow reports conflicts without replacing local
+files. Keep other Xcode files and directories in place.
+
+To restore only these settings after Stow is installed, run from this repository:
+
+```sh
+stow --verbose --no-folding --target="$HOME" xcode
+```
+
+Reopen Xcode. In Settings, select `Tomasz.kubiak.xcode` in Key Bindings and select
+the installed light or dark theme in Themes. Theme and keybinding selection is
+local to each machine. Existing `Default.idekeybindings` overrides remain local;
+select the named set to use the tracked shortcuts.
+
+Xcode may save edits back through the links or replace a link with a regular
+file. Review the repository diff after changing settings. If Xcode replaced a
+link, compare and back up that file before moving it aside and restowing.
+Only the named keybinding set and two themes are tracked. Code snippets,
+provisioning profiles, accounts, preferences, UI state, histories, and caches
+stay outside this package.
